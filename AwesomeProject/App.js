@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ImageBackground } from 'react-native';
-import RegistrationScreen from './src/components/Screens/RegistrationScreen/RegistrationScreen';
+import RegistrationScreen from './src/Screens/RegistrationScreen/RegistrationScreen';
 
 const App = () => {
   return (
@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     width: '100%',
     height: '100%',
-    justifyContent: 'center',
-    textAlign: 'center',
+    justifyContent: 'flex-end',
+    // textAlign: 'center',
     // alignItems: 'center',
   },
 });
