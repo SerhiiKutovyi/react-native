@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 
 const myIcon = <Icon name="plus" color="#FF6C00" size={25} />;
 
-const RegistrationScreen = () => {
+const LoginScreen = () => {
   const handlePress = () => {
     // обработчик события нажатия на иконку
     console.log('Иконка нажата');
@@ -19,21 +19,8 @@ const RegistrationScreen = () => {
   return (
     <View>
       <View style={styles.form}>
-        <View style={styles.photo}></View>
-        <TouchableOpacity onPress={handlePress} style={styles.btnPress}>
-          {myIcon}
-        </TouchableOpacity>
+        <Text style={styles.title}>Увійти</Text>
 
-        <Text style={styles.title}>Реєстрація</Text>
-        <View>
-          <TextInput
-            style={styles.login}
-            textAlign={'left'}
-            backgroundColor={'#F6F6F6'}
-            placeholder={'Логін'}
-            selectionColor={'#212121'}
-          />
-        </View>
         <View>
           <TextInput
             style={styles.email}
@@ -65,10 +52,12 @@ const RegistrationScreen = () => {
           </TouchableOpacity>
         </View>
         <TouchableOpacity style={styles.button} activeOpacity={0.5}>
-          <Text style={{ color: '#FFFFFF' }}>Зареєструватись</Text>
+          <Text style={{ color: '#FFFFFF' }}>Увійти</Text>
         </TouchableOpacity>
         <Pressable>
-          <Text style={styles.signIn}>Вже є обліковий запис? Увійти</Text>
+          <Text style={styles.signIn}>
+            Немає облікового запису? Зареєструватись
+          </Text>
         </Pressable>
         <Pressable style={styles.homeIndication}>
           <View style={styles.indication}></View>
@@ -78,7 +67,7 @@ const RegistrationScreen = () => {
   );
 };
 
-export default RegistrationScreen;
+export default LoginScreen;
 
 const styles = StyleSheet.create({
   btnPress: {
@@ -100,35 +89,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#F6F6F6',
   },
   title: {
-    marginBottom: 32,
-    paddingTop: 96,
+    marginVertical: 32,
     color: '#212121',
     textAlign: 'center',
     fontSize: 30,
   },
   form: {
     position: 'relative',
-    height: 549,
+    height: 489,
     backgroundColor: '#FFFFFF',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     alignItems: 'center',
   },
-  login: {
-    height: 50,
-    width: 343,
-    marginBottom: 16,
-    paddingLeft: 16,
 
-    // fontFamily: 'Roboto',
-    // fontWeight: 400,
-    fontSize: 16,
-    // lineHeight: 19,
-    // borderWidth: 3,
-    // borderColor: '#fff',
-    borderRadius: 8,
-    color: '#BDBDBD',
-  },
   email: {
     height: 50,
     width: 343,
@@ -165,7 +139,9 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     backgroundColor: '#FF6C00',
     paddingVertical: 16,
-    paddingHorizontal: 93.5,
+    width: 343,
+    alignItems: 'center',
+
     borderRadius: 100,
   },
   // signIn: {
