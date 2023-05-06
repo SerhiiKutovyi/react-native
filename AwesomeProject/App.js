@@ -10,8 +10,8 @@ const App = () => {
         style={styles.image}
         source={require('../AwesomeProject/src/assets/images/ImageBackground.png')}
       >
-        {/* <RegistrationScreen /> */}
-        <LoginScreen />
+        <RegistrationScreen />
+        {/* <LoginScreen /> */}
       </ImageBackground>
 
       <StatusBar style="auto" />

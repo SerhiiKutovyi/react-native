@@ -7,15 +7,13 @@ import {
   Pressable,
   TouchableOpacity,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/EvilIcons';
-
-const myIcon = <Icon name="plus" color="#FF6C00" size={25} />;
 
 const LoginScreen = () => {
   const handlePress = () => {
     // обработчик события нажатия на иконку
     console.log('Иконка нажата');
   };
+
   return (
     <View>
       <View style={styles.form}>
@@ -43,6 +41,8 @@ const LoginScreen = () => {
             placeholder={'Пароль'}
             secureTextEntry={true}
             selectionColor={'#212121'}
+
+            // onFocus={() => {}}
           />
           <TouchableOpacity
             style={{ position: 'absolute' }}
