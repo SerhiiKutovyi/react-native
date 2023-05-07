@@ -1,11 +1,12 @@
 import { StyleSheet, View } from 'react-native';
 
-const Container = ({ stylesContainer, children }) => {
+function Container({ stylesContainer, children, ...props }) {
   return (
-    <View style={{ ...styles.container, ...stylesContainer }}>{children}</View>
+    <View style={{ ...styles.container, ...stylesContainer }} {...props}>
+      {children}
+    </View>
   );
-};
-
+}
 export default Container;
 
 const styles = StyleSheet.create({
