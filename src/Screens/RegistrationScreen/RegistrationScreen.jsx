@@ -56,7 +56,7 @@ const RegistrationScreen = () => {
                     marginBottom: !isShowKeyboard ? 46 : 130,
                   },
                   android: {
-                    marginBottom: 0,
+                    // marginBottom: isShowKeyboard ? 0 : 0,
                     // marginBottom: 0,
                   },
                 }),
@@ -102,7 +102,10 @@ const RegistrationScreen = () => {
                   backgroundColor={'#F6F6F6'}
                   placeholder={'Логін'}
                   selectionColor={'#212121'}
-                  onFocus={e => {
+                  onSubmitEditing={() => {
+                    setIsShowKeyboard(false);
+                  }}
+                  onFocus={() => {
                     setIsShowKeyboard(true);
                   }}
                   value={state.login}
@@ -118,6 +121,9 @@ const RegistrationScreen = () => {
                   backgroundColor={'#F6F6F6'}
                   placeholder={'Адреса електронної пошти'}
                   selectionColor={'#212121'}
+                  onSubmitEditing={() => {
+                    setIsShowKeyboard(false);
+                  }}
                   onFocus={() => {
                     setIsShowKeyboard(true);
                   }}
@@ -137,6 +143,9 @@ const RegistrationScreen = () => {
                   placeholder={'Пароль'}
                   secureTextEntry={true}
                   selectionColor={'#212121'}
+                  onSubmitEditing={() => {
+                    setIsShowKeyboard(false);
+                  }}
                   onFocus={() => {
                     setIsShowKeyboard(true);
                   }}
@@ -160,9 +169,9 @@ const RegistrationScreen = () => {
               <Pressable>
                 <Text style={styles.signIn}>Вже є обліковий запис? Увійти</Text>
               </Pressable>
-              {/* <Pressable style={styles.homeIndication}>
-              <View style={styles.indication}></View>
-            </Pressable> */}
+              <Pressable style={styles.homeIndication}>
+                <View style={styles.indication}></View>
+              </Pressable>
             </View>
           </View>
         </Background>

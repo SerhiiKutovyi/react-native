@@ -2,12 +2,6 @@ import { StyleSheet, ImageBackground } from 'react-native';
 import { Dimensions } from 'react-native';
 
 const Background = ({ stylesBackground, children }) => {
-  console.log(
-    'width',
-    Dimensions.get('window').width,
-    'height',
-    Dimensions.get('window').height
-  );
   return (
     <>
       <ImageBackground

@@ -94,6 +94,7 @@ export const styles = StyleSheet.create({
 
   signIn: {
     marginBottom: 'auto',
+    textAlign: 'center',
   },
 
   homeIndication: {
