@@ -56,7 +56,7 @@ const RegistrationScreen = () => {
                     marginBottom: !isShowKeyboard ? 46 : 130,
                   },
                   android: {
-                    // marginBottom: isShowKeyboard ? 0 : 0,
+                    marginBottom: isShowKeyboard ? -121 : 0,
                     // marginBottom: 0,
                   },
                 }),
@@ -157,22 +157,27 @@ const RegistrationScreen = () => {
                   <Text style={styles.ShowPassword}>Показати</Text>
                 </TouchableOpacity>
               </View>
+
+              <View>
+                <TouchableOpacity
+                  style={styles.button}
+                  activeOpacity={0.5}
+                  onPress={handleImageSubmit}
+                >
+                  <Text style={{ color: '#FFFFFF' }}>Зареєструватись</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity>
+                  <Text style={styles.signIn}>
+                    Вже є обліковий запис? Увійти
+                  </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.homeIndication}>
+                  <View style={styles.indication}></View>
+                </TouchableOpacity>
+              </View>
             </KeyboardAvoidingView>
-            <View style={{ marginBottom: isShowKeyboard ? -100 : 0 }}>
-              <TouchableOpacity
-                style={styles.button}
-                activeOpacity={0.5}
-                onPress={handleImageSubmit}
-              >
-                <Text style={{ color: '#FFFFFF' }}>Зареєструватись</Text>
-              </TouchableOpacity>
-              <Pressable>
-                <Text style={styles.signIn}>Вже є обліковий запис? Увійти</Text>
-              </Pressable>
-              <Pressable style={styles.homeIndication}>
-                <View style={styles.indication}></View>
-              </Pressable>
-            </View>
           </View>
         </Background>
       </Container>
