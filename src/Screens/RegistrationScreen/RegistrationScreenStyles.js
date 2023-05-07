@@ -1,87 +1,78 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 export const styles = StyleSheet.create({
-  btnPress: {
-    position: 'absolute',
-    zIndex: 2,
-    left: Dimensions.get('window').width / 2 - 90,
-    top: 70,
-
-    borderRadius: 50,
+  form: {
+    backgroundColor: '#FFFFFF',
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
+    paddingHorizontal: 16,
   },
 
-  photo: {
-    width: 120,
-    height: 120,
+  avatarWrap: {
     position: 'absolute',
     top: -60,
-    left: Dimensions.get('window').width / 2 - 90,
+    left: Dimensions.get('window').width / 2 - 60 - 32 / 2,
+    width: 120,
+    height: 120,
     borderRadius: 16,
     backgroundColor: '#F6F6F6',
   },
 
   avatarImg: {
-    height: '100%',
-    width: '100%',
-    borderRadius: 16,
+    position: 'relative',
+    width: 120,
+    height: 120,
     resizeMode: 'contain',
+    borderRadius: 16,
   },
 
+  avatarBtn: {
+    position: 'absolute',
+    top: 70,
+    right: -15,
+    width: 30,
+    height: 30,
+  },
+
+  avatarBtnIconWrap: {},
+  avatarBtnIcon: {},
+
   title: {
+    marginTop: 96,
     marginBottom: 32,
-    paddingTop: 96,
     color: '#212121',
     textAlign: 'center',
     fontSize: 30,
   },
 
-  form: {
-    position: 'relative',
-
-    backgroundColor: '#FFFFFF',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-    alignItems: 'center',
-  },
-
   login: {
     height: 50,
-    width: 343,
+    width: '100%',
     marginBottom: 16,
-    paddingLeft: 16,
-
-    // fontFamily: 'Roboto',
-    // fontWeight: 400,
+    // // fontFamily: 'Roboto',
+    // // fontWeight: 400,
     fontSize: 16,
-    // lineHeight: 19,
-    // borderWidth: 3,
-    // borderColor: '#fff',
+    // // lineHeight: 19,
+    // // borderWidth: 3,
+    // // borderColor: '#fff',
     borderRadius: 8,
     color: '#BDBDBD',
   },
 
   email: {
     height: 50,
-    width: 343,
-
+    width: '100%',
     marginBottom: 16,
-    paddingLeft: 16,
-
     fontSize: 16,
-
     borderRadius: 8,
     color: '#BDBDBD',
   },
 
   password: {
     height: 50,
-    width: 343,
-
-    paddingLeft: 16,
+    width: '100%',
     marginBottom: 43,
-
     fontSize: 16,
-
     borderRadius: 8,
     color: '#BDBDBD',
   },
@@ -100,14 +91,15 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 93.5,
     borderRadius: 100,
   },
-  // signIn: {
-  //   marginBottom: 'auto',
-  // },
+
+  signIn: {
+    marginBottom: 'auto',
+  },
+
   homeIndication: {
     marginTop: 'auto',
     alignItems: 'center',
     justifyContent: 'flex-end',
-
     height: 34,
     width: '100%',
   },
