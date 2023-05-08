@@ -17,7 +17,7 @@ import Background from 'src/components/common/Background/Background';
 import { styles } from './RegistrationScreenStyles';
 
 const initialState = {
-  name: '',
+  login: '',
   email: '',
   password: '',
 };
@@ -27,10 +27,11 @@ const RegistrationScreen = () => {
   const [isShowKeyboard, setIsShowKeyboard] = useState(false);
   const [onClickImgPicker, setOnclickImgPicker] = useState(false);
 
-  const handleImageSubmit = () => {
-    // console.log('submit');
-    setIsShowKeyboard(true);
-    Keyboard.dismiss();
+  const onButtonSubmit = () => {
+    console.log(111, state);
+    setState(initialState);
+    // setIsShowKeyboard(true);
+    // Keyboard.dismiss();
   };
 
   const keyboardHide = () => {
@@ -40,7 +41,6 @@ const RegistrationScreen = () => {
 
   const handleImagePicker = () => {
     setOnclickImgPicker(!onClickImgPicker);
-    console.log(onClickImgPicker);
   };
 
   return (
@@ -56,7 +56,7 @@ const RegistrationScreen = () => {
                     marginBottom: !isShowKeyboard ? 46 : 130,
                   },
                   android: {
-                    marginBottom: isShowKeyboard ? -121 : 0,
+                    marginBottom: isShowKeyboard ? -141 : 0,
                     // marginBottom: 0,
                   },
                 }),
@@ -127,6 +127,10 @@ const RegistrationScreen = () => {
                   onFocus={() => {
                     setIsShowKeyboard(true);
                   }}
+                  value={state.email}
+                  onChangeText={value =>
+                    setState(prevState => ({ ...prevState, email: value }))
+                  }
                 />
               </View>
 
@@ -149,6 +153,10 @@ const RegistrationScreen = () => {
                   onFocus={() => {
                     setIsShowKeyboard(true);
                   }}
+                  value={state.password}
+                  onChangeText={value =>
+                    setState(prevState => ({ ...prevState, password: value }))
+                  }
                 />
                 <TouchableOpacity
                   style={{ position: 'absolute' }}
@@ -162,7 +170,7 @@ const RegistrationScreen = () => {
                 <TouchableOpacity
                   style={styles.button}
                   activeOpacity={0.5}
-                  onPress={handleImageSubmit}
+                  onPress={onButtonSubmit}
                 >
                   <Text style={{ color: '#FFFFFF' }}>Зареєструватись</Text>
                 </TouchableOpacity>

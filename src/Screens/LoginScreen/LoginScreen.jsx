@@ -15,7 +15,6 @@ import Background from 'src/components/common/Background/Background';
 import { styles } from './LoginScreenStyles';
 
 const initialState = {
-  name: '',
   email: '',
   password: '',
 };
@@ -23,22 +22,15 @@ const initialState = {
 const LoginScreen = () => {
   const [state, setState] = useState(initialState);
   const [isShowKeyboard, setIsShowKeyboard] = useState(false);
-  const [onClickImgPicker, setOnclickImgPicker] = useState(false);
 
-  const handleImageSubmit = () => {
-    // console.log('submit');
-    setIsShowKeyboard(true);
-    Keyboard.dismiss();
+  const onButtonSubmit = () => {
+    console.log('Login', state);
+    setState(initialState);
   };
 
   const keyboardHide = () => {
     Keyboard.dismiss();
     setIsShowKeyboard(false);
-  };
-
-  const handleImagePicker = () => {
-    setOnclickImgPicker(!onClickImgPicker);
-    console.log(onClickImgPicker);
   };
 
   return (
@@ -75,6 +67,10 @@ const LoginScreen = () => {
                   onFocus={() => {
                     setIsShowKeyboard(true);
                   }}
+                  value={state.email}
+                  onChangeText={value =>
+                    setState(prevState => ({ ...prevState, email: value }))
+                  }
                 />
               </View>
 
@@ -97,6 +93,10 @@ const LoginScreen = () => {
                   onFocus={() => {
                     setIsShowKeyboard(true);
                   }}
+                  value={state.password}
+                  onChangeText={value =>
+                    setState(prevState => ({ ...prevState, password: value }))
+                  }
                 />
                 <TouchableOpacity
                   style={{ position: 'absolute' }}
@@ -110,7 +110,7 @@ const LoginScreen = () => {
                 <TouchableOpacity
                   style={styles.buttonSubmit}
                   activeOpacity={0.5}
-                  onPress={handleImageSubmit}
+                  onPress={onButtonSubmit}
                 >
                   <Text style={{ color: '#FFFFFF' }}>Увійти</Text>
                 </TouchableOpacity>

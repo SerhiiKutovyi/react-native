@@ -7,11 +7,11 @@ import PostsScreen from './src/Screens/PostsScreen/PostsScreen';
 const App = () => {
   return (
     <>
-      <RegistrationScreen />
+      {/* <RegistrationScreen /> */}
       {/* <CommentsScreen /> */}
       {/* <CreatePostsScreen /> */}
       {/* <Home /> */}
-      {/* <LoginScreen /> */}
+      <LoginScreen />
       {/* <MapScreen /> */}
       {/* <PostsScreen /> */}
       {/* <ProfileScreen /> */}
