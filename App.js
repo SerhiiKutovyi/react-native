@@ -8,44 +8,60 @@ import LoginScreen from 'src/Screens/AuthScreen/LoginScreen/LoginScreen';
 import CommentsScreen from 'src/Screens/CommentsScreen/CommentsScreen';
 import PostsScreen from 'src/Screens/MainScreen/PostsScreen/PostsScreen';
 import CreatePostsScreen from 'src/Screens/MainScreen/CreatePostsScreen/CreatePostsScreen';
-import ProfileScreen from './src/Screens/MainScreen/ProfileScreen';
+import ProfileScreen from 'src/Screens/MainScreen/ProfileScreen/ProfileScreen';
 
 const AuthStack = createStackNavigator();
 const MainTab = createBottomTabNavigator();
 
+const useRout = isAuth => {
+  if (!isAuth) {
+    return (
+      <AuthStack.Navigator>
+        <AuthStack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+        <AuthStack.Screen
+          name="Register"
+          component={RegistrationScreen}
+          options={{ headerShown: false }}
+        />
+      </AuthStack.Navigator>
+    );
+  }
+  return (
+    <MainTab.Navigator>
+      <MainTab.Screen
+        name="Posts"
+        component={PostsScreen}
+        options={{ headerShown: false }}
+      />
+      <MainTab.Screen
+        name="Create"
+        component={CreatePostsScreen}
+        options={{ headerShown: false }}
+      />
+      <MainTab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{ headerShown: false }}
+      />
+    </MainTab.Navigator>
+  );
+};
+
 const App = () => {
+  const routing = useRout();
   return (
     <>
-      <NavigationContainer>
-        <MainTab.Navigator>
-          <MainTab.Screen name="Posts" component={PostsScreen} />
-          <MainTab.Screen name="Create" component={CreatePostsScreen} />
-          <MainTab.Screen name="Profile" component={ProfileScreen} />
-        </MainTab.Navigator>
-      </NavigationContainer>
+      <NavigationContainer>{routing}</NavigationContainer>
       {/* <CommentsScreen /> */}
       {/* <Home /> */}
       {/* <MapScreen /> */}
-      {/* </ImageBackground> */}
-
       <StatusBar style="auto" />
     </>
   );
 };
 
 export default App;
-
-//Auth-----------------------
-
-//         <AuthStack.Navigator>
-//           <AuthStack.Screen
-//             name="Login"
-//             component={LoginScreen}
-//             options={{ headerShown: false }}
-//           />
-//           <AuthStack.Screen
-//             name="Register"
-//             component={RegistrationScreen}
-//             options={{ headerShown: false }}
-//           />
-//  </AuthStack.Navigator>

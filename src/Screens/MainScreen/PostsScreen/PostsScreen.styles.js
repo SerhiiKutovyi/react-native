@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
-    marginHorizontal: 16,
+    paddingHorizontal: 16,
   },
 
   titleBox: {

@@ -12,7 +12,7 @@ const PostsScreen = () => {
       <View style={styles.userInfo}>
         <Image
           style={styles.userAvatar}
-          source={require('../../../src/assets/images/Rectangle.png')}
+          source={require('../../../../src/assets/images/Rectangle.png')}
         />
         <View>
           <Text style={styles.userName}>Natali Romanova</Text>
