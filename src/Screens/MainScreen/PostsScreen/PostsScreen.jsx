@@ -1,6 +1,6 @@
 import { View, Text, Image } from 'react-native';
 import { styles } from './PostsScreen.styles';
-import Container from '../../components/common/Container/Container';
+import Container from '../../../components/common/Container/Container';
 
 const PostsScreen = () => {
   return (

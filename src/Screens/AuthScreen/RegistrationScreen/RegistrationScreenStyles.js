@@ -8,12 +8,55 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
 
-  title: {
-    marginVertical: 32,
+  avatarWrap: {
+    position: 'absolute',
+    top: -60,
+    left: Dimensions.get('window').width / 2 - 60 - 32 / 2,
+    width: 120,
+    height: 120,
+    borderRadius: 16,
+    backgroundColor: '#F6F6F6',
+  },
 
+  avatarImg: {
+    position: 'relative',
+    width: 120,
+    height: 120,
+    resizeMode: 'contain',
+    borderRadius: 16,
+  },
+
+  avatarBtn: {
+    position: 'absolute',
+    top: 70,
+    right: -15,
+    width: 30,
+    height: 30,
+  },
+
+  avatarBtnIconWrap: {},
+  avatarBtnIcon: {},
+
+  title: {
+    marginTop: 96,
+    marginBottom: 32,
     color: '#212121',
     textAlign: 'center',
     fontSize: 30,
+  },
+
+  login: {
+    padding: 16,
+    width: '100%',
+    marginBottom: 16,
+    fontSize: 16,
+    borderRadius: 8,
+    color: '#BDBDBD',
+    // // fontFamily: 'Roboto',
+    // // fontWeight: 400,
+    // // lineHeight: 19,
+    // // borderWidth: 3,
+    // // borderColor: '#fff',
   },
 
   email: {
@@ -35,13 +78,13 @@ export const styles = StyleSheet.create({
   },
 
   ShowPassword: {
-    top: 10,
+    top: 32 / 2,
     left: -16,
     color: '#1B4371',
     fontSize: 16,
   },
 
-  buttonSubmit: {
+  button: {
     display: 'flex',
     alignItems: 'center',
 
@@ -53,9 +96,10 @@ export const styles = StyleSheet.create({
     borderRadius: 100,
   },
 
-  signIn: {
-    marginBottom: 111,
+  buttonSignIn: {
+    marginBottom: 'auto',
     textAlign: 'center',
+    marginBottom: 45,
   },
 
   homeIndication: {

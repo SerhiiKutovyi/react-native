@@ -3,34 +3,44 @@ import {
   Text,
   View,
   TextInput,
+  Button,
   TouchableWithoutFeedback,
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
   Keyboard,
+  Image,
 } from 'react-native';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import Container from 'src/components/common/Container/Container';
 import Background from 'src/components/common/Background/Background';
-import { styles } from './LoginScreenStyles';
+import { styles } from './RegistrationScreenStyles';
 
 const initialState = {
+  login: '',
   email: '',
   password: '',
 };
 
-const LoginScreen = () => {
+const RegistrationScreen = ({ navigation }) => {
   const [state, setState] = useState(initialState);
   const [isShowKeyboard, setIsShowKeyboard] = useState(false);
+  const [onClickImgPicker, setOnclickImgPicker] = useState(false);
 
   const onButtonSubmit = () => {
-    console.log('Login', state);
+    console.log(111, state);
     setState(initialState);
+    // setIsShowKeyboard(true);
+    // Keyboard.dismiss();
   };
 
   const keyboardHide = () => {
     Keyboard.dismiss();
     setIsShowKeyboard(false);
+  };
+
+  const handleImagePicker = () => {
+    setOnclickImgPicker(!onClickImgPicker);
   };
 
   return (
@@ -46,14 +56,64 @@ const LoginScreen = () => {
                     marginBottom: !isShowKeyboard ? 46 : 130,
                   },
                   android: {
-                    marginBottom: isShowKeyboard ? -243 : 0,
+                    marginBottom: isShowKeyboard ? -141 : 0,
                     // marginBottom: 0,
                   },
                 }),
               }}
             >
-              <Text style={styles.title}>Увійти</Text>
+              <View style={styles.avatarWrap}>
+                <Image
+                  style={styles.avatarImg}
+                  source={require('../../../assets/images/Rectangle.png')}
+                />
+                <TouchableOpacity
+                  style={{
+                    ...styles.avatarBtn,
+                  }}
+                  onPress={() => {
+                    handleImagePicker();
+                  }}
+                >
+                  <View
+                    style={{
+                      ...styles.avatarBtnIconWrap,
+                      transform: onClickImgPicker
+                        ? [{ rotate: '-45deg' }]
+                        : [{ rotate: '0deg' }],
+                    }}
+                  >
+                    <Icon
+                      iconStyle={styles.avatarBtnIcon}
+                      name="add-circle-outline"
+                      size={30}
+                      color={onClickImgPicker ? '#000000' : '#FF6C00'}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </View>
 
+              <Text style={styles.title}>Реєстрація</Text>
+
+              <View>
+                <TextInput
+                  style={styles.login}
+                  textAlign={'left'}
+                  backgroundColor={'#F6F6F6'}
+                  placeholder={'Логін'}
+                  selectionColor={'#212121'}
+                  onSubmitEditing={() => {
+                    setIsShowKeyboard(false);
+                  }}
+                  onFocus={() => {
+                    setIsShowKeyboard(true);
+                  }}
+                  value={state.login}
+                  onChangeText={value =>
+                    setState(prevState => ({ ...prevState, login: value }))
+                  }
+                />
+              </View>
               <View>
                 <TextInput
                   style={styles.email}
@@ -108,15 +168,15 @@ const LoginScreen = () => {
 
               <View>
                 <TouchableOpacity
-                  style={styles.buttonSubmit}
+                  style={styles.button}
                   activeOpacity={0.5}
                   onPress={onButtonSubmit}
                 >
-                  <Text style={{ color: '#FFFFFF' }}>Увійти</Text>
+                  <Text style={{ color: '#FFFFFF' }}>Зареєструватись</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                  <Text style={styles.signIn}>
+                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                  <Text style={styles.buttonSignIn}>
                     Вже є обліковий запис? Увійти
                   </Text>
                 </TouchableOpacity>
@@ -133,4 +193,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default RegistrationScreen;
