@@ -1,23 +1,22 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#FFFFFF',
-    paddingHorizontal: 16,
-  },
-
-  titleBox: {
+  header: {
     paddingBottom: 11,
     paddingTop: 55,
-    borderColor: 'red',
 
-    Width: '100%',
-    Height: 88,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(0, 0, 0, 0.1)',
+
+    backgroundColor: '#FFFFFF',
+    // boxShadow: '0px 0.5px 0px rgba(0, 0, 0, 0.3)',
+    // backdropFilter: 'blur(13.5914)',
+    //
   },
 
   title: {
-    // fontFamily: 'Roboto',
-    // fontStyle: normal,
+    fontFamily: 'Roboto-500',
+    fontStyle: 'normal',
     fontWeight: 500,
     fontSize: 17,
     lineHeight: 22,
@@ -31,6 +30,9 @@ export const styles = StyleSheet.create({
   // USER INFO
 
   userInfo: {
+    paddingHorizontal: 16,
+    paddingVertical: 32,
+
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -47,7 +49,7 @@ export const styles = StyleSheet.create({
   userName: {
     marginLeft: 8,
 
-    fontFamily: 'Roboto',
+    fontFamily: 'Roboto-700',
     fontStyle: 'normal',
     fontWeight: 700,
     fontSize: 13,
@@ -58,5 +60,12 @@ export const styles = StyleSheet.create({
 
   userEmail: {
     marginLeft: 8,
+    fontFamily: 'Roboto-400',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    fontSize: 11,
+    lineHeight: 13,
+
+    color: 'rgba(33, 33, 33, 0.8)',
   },
 });
