@@ -3,7 +3,6 @@ import {
   Text,
   View,
   TextInput,
-  Button,
   TouchableWithoutFeedback,
   TouchableOpacity,
   KeyboardAvoidingView,
@@ -170,7 +169,8 @@ const RegistrationScreen = ({ navigation }) => {
                 <TouchableOpacity
                   style={styles.button}
                   activeOpacity={0.5}
-                  onPress={onButtonSubmit}
+                  // onPress={onButtonSubmit}
+                  onPress={() => navigation.navigate('Posts')}
                 >
                   <Text style={{ color: '#FFFFFF' }}>Зареєструватись</Text>
                 </TouchableOpacity>

@@ -8,7 +8,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   Keyboard,
-  Button,
 } from 'react-native';
 
 import Container from 'src/components/common/Container/Container';
@@ -110,7 +109,8 @@ const LoginScreen = ({ navigation }) => {
                 <TouchableOpacity
                   style={styles.buttonSubmit}
                   activeOpacity={0.5}
-                  onPress={onButtonSubmit}
+                  // onPress={onButtonSubmit}
+                  onPress={() => navigation.navigate('PostsScreen')}
                 >
                   <Text style={{ color: '#FFFFFF' }}>Увійти</Text>
                 </TouchableOpacity>

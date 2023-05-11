@@ -1,12 +1,8 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
-
+import HomeScreen from './src/Screens/HomeScreen/HomeScreen';
 import useLoadFonts from 'src/hooks/useLoadFonts';
-import useRout from './src/hooks/useRout';
 
 const App = () => {
   const appIsReady = useLoadFonts();
-  const routing = useRout();
 
   if (!appIsReady) {
     return null;
@@ -14,11 +10,7 @@ const App = () => {
 
   return (
     <>
-      <NavigationContainer>{routing}</NavigationContainer>
-      {/* <CommentsScreen /> */}
-      {/* <Home /> */}
-      {/* <MapScreen /> */}
-      <StatusBar style="auto" />
+      <HomeScreen />
     </>
   );
 };

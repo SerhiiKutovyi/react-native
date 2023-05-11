@@ -12,8 +12,6 @@ export const styles = StyleSheet.create({
 
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(0, 0, 0, 0.1)',
-
-    backgroundColor: '#FFFFFF',
   },
 
   title: {
