@@ -1,21 +1,23 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 
-import { SvgXml } from 'react-native-svg';
 import * as React from 'react';
 import { Camera, CameraType } from 'expo-camera';
 import * as Location from 'expo-location';
 import { useState, useEffect } from 'react';
 import * as MediaLibrary from 'expo-media-library';
 
-import { Feather } from '@expo/vector-icons';
+import { Feather, AntDesign } from '@expo/vector-icons';
 
 import { styles } from './CreatePostsScreenStyles';
 import Container from '../../../components/common/Container/Container';
-
-const arrowSvgIcon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 12H4" stroke="#212121" stroke-opacity="0.8" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M10 18L4 12L10 6" stroke="#212121" stroke-opacity="0.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>`;
 
 const initialState = {
   name: '',
@@ -30,20 +32,20 @@ const initialState = {
 // };
 
 const CreatePostsScreen = ({ navigation }) => {
-  // const [hasPermission, setHasPermission] = useState(null);
+  const [isShowKeyboard, setIsShowKeyboard] = useState(false);
   const [state, setState] = useState(initialState);
   const [click, setClick] = useState('');
   const [camera, setCamera] = useState(null);
 
-  useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      setState(prevState => ({
-        ...prevState,
-        photo: null,
-      }));
-    });
-    return unsubscribe;
-  }, [navigation]);
+  // useEffect(() => {
+  //   const unsubscribe = navigation.addListener('focus', () => {
+  //     setState(prevState => ({
+  //       ...prevState,
+  //       photo: null,
+  //     }));
+  //   });
+  //   return unsubscribe;
+  // }, [navigation]);
 
   const takePhotoClick = async () => {
     const photo = await camera.takePictureAsync();
@@ -82,12 +84,7 @@ const CreatePostsScreen = ({ navigation }) => {
       <View style={styles.header}>
         <Text style={styles.title}>Створити публікацію</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Posts')}>
-          <SvgXml
-            style={styles.svgLogOut}
-            xml={arrowSvgIcon}
-            width={24}
-            height={24}
-          />
+          <AntDesign name="arrowleft" size={24} color="black" />
         </TouchableOpacity>
       </View>
 
@@ -103,7 +100,7 @@ const CreatePostsScreen = ({ navigation }) => {
             >
               <Image
                 source={{ uri: state.photo }}
-                style={{ height: 20, width: 20 }}
+                style={{ height: 210, width: 210 }}
               />
             </View>
           ) : (
@@ -112,22 +109,75 @@ const CreatePostsScreen = ({ navigation }) => {
             </TouchableOpacity>
           )}
         </Camera>
-
         <Text style={styles.cameraInform}>Завантажте фото</Text>
-        <Text style={styles.cameraName}>Назва...</Text>
-        <Text style={styles.cameraLocality}>Місцевість...</Text>
 
-        <TouchableOpacity
-          style={styles.cameraButton}
-          activeOpacity={0.5}
-          onPress={sendPhotoClick}
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : 'marginBottom'}
+          style={{
+            ...Platform.select({
+              ios: {
+                marginBottom: !isShowKeyboard ? 46 : 130,
+              },
+              android: {
+                marginBottom: 50,
+              },
+            }),
+          }}
         >
-          <Text style={styles.cameraTextButton}>Опублікувати</Text>
-        </TouchableOpacity>
+          <TextInput
+            style={styles.inputName}
+            textAlign={'left'}
+            placeholder={'Назва...'}
+            placeholderTextColor={'#BDBDBD'}
+            selectionColor={'#212121'}
+            onSubmitEditing={() => {
+              setIsShowKeyboard(false);
+            }}
+            onFocus={() => {
+              setIsShowKeyboard(true);
+            }}
+            value={state.name}
+            onChangeText={value =>
+              setState(prevState => ({ ...prevState, name: value }))
+            }
+          />
 
-        <TouchableOpacity style={styles.cameraClear}>
-          <Feather name="trash-2" size={24} color="#BDBDBD" />
-        </TouchableOpacity>
+          <View style={{ position: 'relative' }}>
+            <View style={{ position: 'absolute', top: 25 / 2 }}>
+              <Feather name="map-pin" size={24} color="#BDBDBD" />
+            </View>
+
+            <TextInput
+              style={styles.inputLocality}
+              textAlign={'left'}
+              placeholder={'Місцевість...'}
+              placeholderTextColor={'#BDBDBD'}
+              selectionColor={'#212121'}
+              onSubmitEditing={() => {
+                setIsShowKeyboard(false);
+              }}
+              onFocus={() => {
+                setIsShowKeyboard(true);
+              }}
+              value={state.location}
+              onChangeText={value =>
+                setState(prevState => ({ ...prevState, location: value }))
+              }
+            />
+          </View>
+
+          <TouchableOpacity
+            style={styles.cameraButton}
+            activeOpacity={0.5}
+            onPress={sendPhotoClick}
+          >
+            <Text style={styles.cameraTextButton}>Опублікувати</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.cameraClear}>
+            <Feather name="trash-2" size={24} color="#BDBDBD" />
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
       </View>
     </Container>
   );

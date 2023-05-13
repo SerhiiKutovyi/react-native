@@ -61,7 +61,7 @@ export const styles = StyleSheet.create({
   },
 
   cameraInform: {
-    marginBottom: 48,
+    marginBottom: 44,
 
     fontFamily: 'Roboto-400',
     fontStyle: 'normal',
@@ -72,36 +72,33 @@ export const styles = StyleSheet.create({
     color: '#BDBDBD',
   },
 
-  cameraName: {
-    paddingBottom: 15,
-    marginBottom: 32,
+  inputName: {
+    height: 50,
 
+    marginBottom: 25,
     fontFamily: 'Roboto-400',
     fontStyle: 'normal',
-    fontWeight: 400,
     fontSize: 16,
     lineHeight: 19,
-
     borderBottomWidth: 1,
     borderBottomColor: '#E8E8E8',
 
-    color: '#BDBDBD',
+    color: '#212121',
   },
 
-  cameraLocality: {
-    paddingBottom: 15,
-    marginBottom: 32,
+  inputLocality: {
+    height: 50,
 
+    paddingLeft: 28,
+    marginBottom: 32,
     fontFamily: 'Roboto-400',
     fontStyle: 'normal',
-    fontWeight: 400,
     fontSize: 16,
     lineHeight: 19,
-
     borderBottomWidth: 1,
     borderBottomColor: '#E8E8E8',
 
-    color: '#BDBDBD',
+    color: '#212121',
   },
 
   cameraButton: {
