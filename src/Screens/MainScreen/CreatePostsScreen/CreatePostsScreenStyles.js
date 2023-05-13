@@ -128,8 +128,6 @@ export const styles = StyleSheet.create({
   },
 
   cameraClear: {
-    // right: Dimensions.get('window').width / 2 - 392.72 / 2 - 32 / 2,
-
     marginLeft: 'auto',
     marginRight: 'auto',
 

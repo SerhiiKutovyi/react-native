@@ -1,6 +1,9 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 export const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 16,
+  },
   header: {
     display: 'flex',
     flexDirection: 'row',
@@ -8,7 +11,6 @@ export const styles = StyleSheet.create({
 
     paddingBottom: 11,
     paddingTop: 55,
-    paddingHorizontal: 16,
 
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(0, 0, 0, 0.1)',
@@ -33,7 +35,6 @@ export const styles = StyleSheet.create({
   // USER INFO
 
   userInfo: {
-    paddingHorizontal: 16,
     paddingVertical: 32,
 
     display: 'flex',
@@ -70,5 +71,14 @@ export const styles = StyleSheet.create({
     lineHeight: 13,
 
     color: 'rgba(33, 33, 33, 0.8)',
+  },
+
+  publications: {
+    height: 299,
+  },
+
+  publicationsImg: {
+    height: '100%',
+    width: '100%',
   },
 });

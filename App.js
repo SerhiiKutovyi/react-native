@@ -1,9 +1,8 @@
 import HomeScreen from './src/Screens/HomeScreen/HomeScreen';
 import useLoadFonts from 'src/hooks/useLoadFonts';
 
-const App = () => {
+export default App = () => {
   const appIsReady = useLoadFonts();
-
   if (!appIsReady) {
     return null;
   }
@@ -14,5 +13,3 @@ const App = () => {
     </>
   );
 };
-
-export default App;

@@ -19,7 +19,9 @@ const handleLogOut = e => {
   console.log(e);
 };
 
-const DefaultPostsScreen = () => {
+const DefaultPostsScreen = ({ route }) => {
+  console.log('route.params', route.params);
+  // console.log(state.photo);
   // const svgIcon = require('../../../assets/images/log-out.svg');
   return (
     <Container stylesContainer={styles.container}>
@@ -44,6 +46,12 @@ const DefaultPostsScreen = () => {
           <Text style={styles.userName}>Natali Romanova</Text>
           <Text style={styles.userEmail}>email@example.com</Text>
         </View>
+      </View>
+      <View style={styles.publications}>
+        <Image
+          style={styles.publicationsImg}
+          source={{ uri: route.params?.state.photo }}
+        />
       </View>
     </Container>
   );

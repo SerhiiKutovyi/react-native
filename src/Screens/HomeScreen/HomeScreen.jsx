@@ -1,16 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
+import { useState } from 'react';
 
 import useRout from '../../hooks/useRout';
-import { StatusBar } from 'expo-status-bar';
 
-import { View, Text } from 'react-native';
-const routing = useRout();
 const HomeScreen = () => {
-  return (
-    <>
-      <NavigationContainer>{routing}</NavigationContainer>
-      {/* <StatusBar style="auto" />; */}
-    </>
-  );
+  const [iasReady, setIasReady] = useState();
+  const routing = useRout('qwe');
+  return <NavigationContainer>{routing}</NavigationContainer>;
 };
 export default HomeScreen;
