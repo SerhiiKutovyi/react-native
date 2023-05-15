@@ -29,35 +29,11 @@ export const styles = StyleSheet.create({
     color: '#212121',
   },
 
-  svgLogOut: {},
-
   // USER INFO
 
   cameraInfo: {
-    height: 240,
-
     paddingHorizontal: 16,
     paddingTop: 32,
-  },
-
-  camera: {
-    marginBottom: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 240,
-    backgroundColor: '#E8E8E8',
-  },
-
-  cameraClick: {
-    marginLeft: 8,
-
-    fontFamily: 'Roboto-700',
-    fontStyle: 'normal',
-    fontWeight: 700,
-    fontSize: 13,
-    lineHeight: 15,
-    alignItems: 'center',
-    color: '#ffffff',
   },
 
   cameraInform: {
@@ -99,6 +75,15 @@ export const styles = StyleSheet.create({
     borderBottomColor: '#E8E8E8',
 
     color: '#212121',
+  },
+
+  photoContainer: {
+    width: '100%',
+    height: 240,
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    backgroundColor: '#F6F6F6',
   },
 
   cameraButton: {
