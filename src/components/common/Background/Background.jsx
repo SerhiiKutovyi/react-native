@@ -1,29 +1,29 @@
-import { StyleSheet, ImageBackground } from 'react-native';
-import { Dimensions } from 'react-native';
+// import { StyleSheet, ImageBackground } from 'react-native';
+// import { Dimensions } from 'react-native';
 
-const Background = ({ stylesBackground, children }) => {
-  return (
-    <>
-      <ImageBackground
-        style={{ ...styles.image, ...stylesBackground }}
-        source={require('../../../assets/images/ImageBackground.png')}
-        // resizeMode="cover"
-      >
-        {children}
-      </ImageBackground>
-    </>
-  );
-};
+// const Background = ({ stylesBackground, children }) => {
+//   return (
+//     <>
+//       <ImageBackground
+//         style={{ ...styles.image, ...stylesBackground }}
+//         source={require('../../../assets/images/ImageBackground.png')}
+//         // resizeMode="cover"
+//       >
+//         {children}
+//       </ImageBackground>
+//     </>
+//   );
+// };
 
-export default Background;
+// export default Background;
 
-const styles = StyleSheet.create({
-  image: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-    resizeMode: 'stretch',
-    textAlign: 'center',
-  },
-});
+// const styles = StyleSheet.create({
+//   image: {
+//     flex: 1,
+//     justifyContent: 'flex-end',
+//     width: Dimensions.get('window').width,
+//     height: Dimensions.get('window').height,
+//     resizeMode: 'stretch',
+//     textAlign: 'center',
+//   },
+// });
